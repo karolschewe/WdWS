@@ -29,3 +29,28 @@ print(length(babki.cisnienie))#dlugosc wektora jest liczba kobiet z objawami cuk
 print(hist(pima$diastolic))
 print(plot(density(pima$diastolic,na.rm = TRUE)))
 
+
+#zadanie2a
+dane.o.wyspach <- read.table(file.choose(),header=TRUE)
+#zadanie2b
+srednia.zolwie <- mean(dane.o.wyspach$Species)
+mediana.zolwie<- median(dane.o.wyspach$Species)
+dolny.zolwie<-quantile(dane.o.wyspach$Species,0.25)
+gorny.zolwie<-quantile(dane.o.wyspach$Species,0.75)
+range.zolwie<-range(dane.o.wyspach$Species)
+IQR.zolwie<-IQR(dane.o.wyspach$Species)
+stdev.zolwie<-sd(dane.o.wyspach$Species)
+wariancja.zolwie<-var(dane.o.wyspach$Species)
+#zadanie2c
+histogram.zolwie<-hist(dane.o.wyspach$Area, breaks = 5,main = "Powierzchnia wysp",xlab = "powierzchnia[km^2]",ylab = "liczba zliczen")
+#zadanie2d
+gatunki<-dane.o.wyspach$Species[dane.o.wyspach$Area<25]
+boxplot(gatunki,main="Wykres skrzynkowy dla gatunkow")
+#zadanie3
+wektor<-c((-1-sqrt(10))/4,-1/4,-1/4,(-1+sqrt(10))/4,1)
+skosnosc<-skewness(wektor)
+#zadanie4
+wektor2<-c(5,8,9,3,8,7)
+median(wektor2)
+quantile(wektor2,0.25)
+quantile(wektor2,0.75)
