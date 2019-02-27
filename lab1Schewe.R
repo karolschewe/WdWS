@@ -1,4 +1,5 @@
 library(faraway)
+library(e1071)
 #zadanie 1a
 data(pima) #wczytanie ramki pima z biblioteki faraway
 pima$test<-factor(pima$test)#zamiana wektora na factor
@@ -45,7 +46,9 @@ wariancja.zolwie<-var(dane.o.wyspach$Species)
 histogram.zolwie<-hist(dane.o.wyspach$Area, breaks = 5,main = "Powierzchnia wysp",xlab = "powierzchnia[km^2]",ylab = "liczba zliczen")
 #zadanie2d
 gatunki<-dane.o.wyspach$Species[dane.o.wyspach$Area<25]
-boxplot(gatunki,main="Wykres skrzynkowy dla gatunkow")
+boxplot(gatunki,main="Wykres skrzynkowy dla gatunkow",horizontal = TRUE)
+#odpowiednik figtext z pytona
+text(40,0.65,'goowno')
 #zadanie3
 wektor<-c((-1-sqrt(10))/4,-1/4,-1/4,(-1+sqrt(10))/4,1)
 skosnosc<-skewness(wektor)
