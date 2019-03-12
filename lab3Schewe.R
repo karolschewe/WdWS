@@ -1,3 +1,6 @@
+this.dir <- dirname(parent.frame(2)$ofile)
+setwd(this.dir)
+
 #quantiles function (qnorm) - odwrotna dystrybuanta
 #dystrybuanta mówi z jakim prawdopodobieñstwem wylosowana wartosc bedzie mniejsza badz rowna x
 #odwrotna dystrybuanta mówi na odwrót x s¹ prawdopodobieñstwa y wartoœæ mniejsza badz rowna
@@ -77,3 +80,29 @@ if (n*p >= 5 | n*q>=5 )
 #znowu prop.test()
 print(prop.test(x=3,n=10,p=0.35,alternative = "less"))
 #p-value = 0.5 > 0.05 nie ma podstawy odrzucac hipotezy zerowej
+
+
+#----zadanie 3.7----
+
+#a
+masa.ptaka<-c(5.21,5.15,5.20,5.48,5.19,5.25,5.09,5.17,4.94,5.11)
+#rozklad normalny - t.test
+print(t.test(masa.ptaka, mu =5.2,conf.level = 0.05,alternative = "less"))
+#p-value = 0,32 : nie ma podstawy aby odrzucic hipoteze zerowa (H_0: mu = 5.2)
+
+#b
+#prawdopodobienstwo przyjecia falszywej hipotezy za prawdziwa: moc testu (biore estymator odchylenia std.)
+print(power.t.test(n=10, delta = 0.05, sd=sd(masa.ptaka),
+                   sig.level = 0.05,type = "one.sample",alternative = "one.sided"))
+#power = 0,283: prawdopodobienstwo = 28,3%
+
+
+#----zadanie 3.8----
+
+#trzeba zrobic prop.test
+x=721
+n=1000
+p=0.7
+
+print(prop.test(x,n,p,alternative = "greater",conf.level = 0.1))
+#p-value 0.079 < 0.1 odrzucamy hipoteze zerowa (H_0: p = 0.7, H_1: p > 0.7)
