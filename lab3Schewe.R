@@ -46,6 +46,8 @@ print(prawd.przyjecia)
 
 
 #----zadanie3.6----
+
+#a
 #H_0: p = 0,35 H_1: p < 0.35
 #n*p = ?
 n = 400
@@ -61,3 +63,17 @@ if (n*p >= 5 | n*q>=5 )
 #robimy prop.test:
 print(prop.test(x=128,n=400,p=0.35,alternative = "less"))
 #p-value= 0.114 > 0.05 nie ma podstawy aby odrzucic hipoteze zerowa (p = 0,35)
+
+#b
+#sprawdzenie dla n = 10; x = 3
+n = 10
+if (n*p >= 5 | n*q>=5 )
+{
+  print("prop.test")
+} else
+{
+  print("binom test")
+}
+#znowu prop.test()
+print(prop.test(x=3,n=10,p=0.35,alternative = "less"))
+#p-value = 0.5 > 0.05 nie ma podstawy odrzucac hipotezy zerowej
